@@ -1,47 +1,48 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const long long MAXN = 100000;
-long long sta[MAXN];
-long long top;
+const int M = 100000;
+long long q[M];
+long long front, rear;
 
 bool empty()
 {
-    return top == 0; 
+    return (front == rear);
 }
 
 bool full()
 {
-    return top == MAXN;
+    return rear == M;
 }
 
-long long topn()
+long long frontn()
 {
     if (empty() == true)
     {
         return -1;
     }
-    return sta[top - 1];
+
+    return q[front];
 }
 
 long long size()
 {
-    return top;
+    return (rear - front);
 }
 
-void push(long long n)
+void enqueue(long long x)
 {
-    sta[top++] = n;
+    q[rear++] = x;
 }
 
-long long pop()
+long long dequeue()
 {
     if (empty() == true)
     {
         return -1;
     }
 
-    return sta[--top];
+    return q[front++];
 }
 
 void opr()
@@ -67,7 +68,7 @@ void opr()
             {
                 cin >> pushn;
 
-                push(pushn);
+                enqueue(pushn);
             }
         }
         if (str.compare("Pop") == 0)
@@ -79,7 +80,7 @@ void opr()
 
             for (j = 0; j < popn; j++)
             {
-                pn = pop();
+                pn = dequeue();
 
                 cout << pn << " ";
 
@@ -90,9 +91,9 @@ void opr()
             }
             cout << endl;         
         }
-        if (str.compare("Top") == 0)
+        if (str.compare("Front") == 0)
         {
-            cout << topn() << endl;
+            cout << frontn() << endl;
         }
 
         if (str.compare("Size") == 0)

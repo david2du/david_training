@@ -13,7 +13,7 @@ bool empty()
 
 bool full()
 {
-    return top == M;
+    return top == MAXN;
 }
 
 int size()
@@ -26,9 +26,9 @@ void push(int n)
     sta[top++] = n;
 }
 
-void pop()
+int pop()
 {
-    top--;
+    return sta[--top];
 }
 
 void get_sta()
@@ -36,25 +36,30 @@ void get_sta()
     getline(cin, s);
 }
 
-void cut()
+void print()
 {
+    int a = 0, b = 0;
     int i = 0;
 
     for (i = 0; i < s.size(); i++)
     {
         if (s[i] == '(')
         {
-            
+            push(i);
         }
         else
         {
-            push(1);
+            a = pop();
+
+            cout << a << " " << i << endl;
         }
-        
     }
 }
 
 int main()
 {
+    get_sta();
+    print();
+
     return 0;
 }
