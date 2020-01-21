@@ -46,10 +46,6 @@ int  size()
     return (QMAX + rear - front) % QMAX; 
 };
 
-Node  fro() 
-{
-    return que[front];   
-};
 
 
 
@@ -62,10 +58,6 @@ const int WHIHE = 0;
 int gRow;
 int gCol;
 
-void findblock(int r, int c)
-{
-    return ; 
-}
 
 int dir[4][2] ={
     -1, 0,
