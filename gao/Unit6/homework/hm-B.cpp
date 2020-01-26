@@ -11,7 +11,7 @@ void up(int k)
     {
         int i = k / 2;
 
-        if (h[k] < h[i])
+        if (h[k] > h[i])
         {
             swap(h[i], h[k]);
             k = i;
@@ -34,7 +34,7 @@ void down(int k)
             i++;
         }
 
-        if (h[i] < h[k])
+        if (h[i] > h[k])
         {
             swap(h[i], h[k]);
             k = i;
@@ -46,9 +46,16 @@ void down(int k)
     }
 }
 
+void add(int x)
+{
+    ++n;
+    h[n] = x;
+    up(n);
+}
+
 void del(int pos)
 {
-    swap(h[pos], h[n - 1]);
+    swap(h[pos], h[n]);
     --n;
     //up(pos);
     //down(pos);
@@ -59,18 +66,18 @@ void build()
 {
     cin >> hn;
 
-    for (int i = hn - 1; i >= 0; --i)
+    for (int i = 1; i <= hn; --i)
     {
         cin >> h[i];
+        //add(h[i]);
     }
 }
 
 void print()
 {
-    for (int i = 0; i < hn; i++)
+    for (int i = hn; i > 0; i++)
     {
         cout << h[i] << endl;
-        n++;
     }
 }
 
@@ -81,7 +88,7 @@ int main()
     while (deln == hn)
     {
         int max = 0, maxInd = 0;
-        for (int i = 0; i < (hn - deln); ++i)
+        for (int i = 1; i <= (hn - deln); ++i)
         {
             if (h[i] > max)
             {
