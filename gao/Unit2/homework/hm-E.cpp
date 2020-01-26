@@ -2,7 +2,7 @@
 using namespace std;
 
 const int MAXN = 10000;
-float sta[MAXN];
+double sta[MAXN];
 int top = 0;
 
 bool empty()
@@ -37,7 +37,7 @@ char str[SMAX];
 void opr()
 {
     char * ptoken; 
-    float f1 = 0, f2 = 0, f3 = 0; 
+    double f1 = 0, f2 = 0, f3 = 0; 
 
     getline(cin, inputStr);
     strcpy(str, inputStr.c_str());
