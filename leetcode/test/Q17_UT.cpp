@@ -8,7 +8,7 @@ using namespace testing;
 
 #include "Q17.h"
 
-TEST(Q17, T1)
+/*TEST(Q17, T1)
 {
     Solution s;
     string sdig = "2";
@@ -22,4 +22,4 @@ TEST(Q17, T2)
     string sdig = "23";
     vector<string> v = {"ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"};
     ASSERT_EQ(v, s.letterCombinations(sdig));
-}
+}*/
