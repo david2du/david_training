@@ -13,6 +13,6 @@ link_directories(
 set(SOURCES ${TEST_SOURCES})
 add_executable(${BINARY} ${TEST_SOURCES})
 #add_test(NAME ${BINARY} COMMAND ${BINARY})
-target_link_libraries(${BINARY} PUBLIC   gmock_maind gmockd gtestd)
+target_link_libraries(${BINARY} PUBLIC   gmock_maind gmockd gtestd ${CMAKE_PROJECT_NAME}_lib)
 
 

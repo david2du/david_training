@@ -1,8 +1,8 @@
 /*
  * Q22_Parenthesis.h
  *
- *  Created on: 2020��4��17��
- *      Author: jbdu
+ *  Created on: 2020.6.21
+ *      Author: david2du
  */
 
 #ifndef Q22_PARENTHESIS_H_

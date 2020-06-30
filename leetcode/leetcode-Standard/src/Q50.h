@@ -1,3 +1,6 @@
+#ifndef _Q50_H_
+#define _Q50_H_
+
 class Solution
 {
 public:
@@ -21,3 +24,5 @@ public:
         return result * result * ((n % 2 == 0) ? 1 : x);
     }
 };
+
+#endif
