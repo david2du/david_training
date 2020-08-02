@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"iostream": "cpp",
+			"ostream": "cpp",
+			"*.tcc": "cpp",
+			"algorithm": "cpp",
+			"cstdio": "cpp",
+			"vector": "cpp",
+			"charconv": "cpp",
+			"chrono": "cpp",
+			"complex": "cpp",
+			"functional": "cpp",
+			"string_view": "cpp",
+			"random": "cpp",
+			"istream": "cpp",
+			"limits": "cpp",
+			"valarray": "cpp",
+			"map": "cpp",
+			"queue": "cpp"
+		}
+	}
+}
