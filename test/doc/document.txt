@@ -1,0 +1,16 @@
+CCDP.cpp
+secret number: secret2david
+
+G:/9A_Repository/david_test/Cipher_converter-Decrypt_part
+	G:/9A_Repository/david_test/Cipher_converter-Decrypt_part/Cipher_converter-Decrypt_part-version-1
+	G:/9A_Repository/david_test/Cipher_converter-Decrypt_part/Cipher_converter-Decrypt_part-version-2
+G:/9A_Repository/david_test/Cipher_converter-Encryption_part
+
+they are folders.
+It has been hidden by commander.
+
+hide : 
+attrib ... +h
+
+Unhide : 
+attrib ... -h
