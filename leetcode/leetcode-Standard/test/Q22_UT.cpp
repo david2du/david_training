@@ -12,7 +12,7 @@
 using namespace std;
 using namespace testing;
 
-#include "Q22.h"
+#include "Q22.cpp"
 
 TEST(Q22, T1)
 {

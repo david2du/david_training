@@ -8,7 +8,7 @@
 #include <gmock/gmock.h>
 
 
-#include "Q15_3Sum.h"
+#include "Q15_3Sum.cpp"
 #include <iostream>
 
 using namespace std;

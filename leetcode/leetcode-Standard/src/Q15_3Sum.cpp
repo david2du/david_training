@@ -1,15 +1,8 @@
-/*
- * Q15_3Sum.h
- *
- *  Created on: 2020��4��11��
- *      Author: jbdu
- */
 
-#ifndef Q15_3SUM_H_
-#define Q15_3SUM_H_
 
 #include <vector>
 #include <algorithm>
+#include <set>
 using namespace std;
 
 class Q15Solution {
@@ -120,4 +113,3 @@ public:
 
 };
 
-#endif /* Q15_3SUM_H_ */

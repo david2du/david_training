@@ -4,7 +4,7 @@
 using namespace std;
 using namespace testing;
 
-#include "Q50.h"
+#include "Q50.cpp"
 
 TEST(Q50, T1)
 {

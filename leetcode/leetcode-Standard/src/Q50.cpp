@@ -1,5 +1,5 @@
-#ifndef _Q50_H_
-#define _Q50_H_
+#include <iostream>
+using namespace std; 
 
 class Solution
 {
@@ -24,5 +24,3 @@ public:
         return result * result * ((n % 2 == 0) ? 1 : x);
     }
 };
-
-#endif

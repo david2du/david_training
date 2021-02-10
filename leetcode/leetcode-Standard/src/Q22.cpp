@@ -1,12 +1,3 @@
-/*
- * Q22_Parenthesis.h
- *
- *  Created on: 2020.6.21
- *      Author: david2du
- */
-
-#ifndef Q22_PARENTHESIS_H_
-#define Q22_PARENTHESIS_H_
 
 #include <vector>
 #include <string>
@@ -83,15 +74,3 @@ public:
     }
 };
 
-/*Solution::Solution()
-{
-    num = 0;
-    left_num = 0;
-    right_num = 0;
-}
-
-Solution::~Solution()
-{
-}*/
-
-#endif /* Q22_PARENTHESIS_H_ */
