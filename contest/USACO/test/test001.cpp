@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
+#include <vector> 
 using namespace std;
+
 
 int main()
 {
@@ -10,6 +12,9 @@ int main()
     {
         cout << i << endl;
     }
+    vector<int> v; 
+
+
 
     return 0;
 }
