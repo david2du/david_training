@@ -1,23 +1,27 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <stack>
+#include <limits>
 using namespace std;
 
 struct Edge
 {
-    int node;
-    int len;
+    long long node;
+    long long len;
 };
 
 vector<Edge> edge[100010];
-int in[100010];
+long long in[100010];
 
-int prtme[100010]; // process time
-int lte[100010];
+long long prtme[100010]; // process time
+long long lte[100010];
 
-int critical_path(int n)
+long long critical_path(long long n)
 {
-    queue<int> q;
+    queue<long long> q;
 
-    for (int i = 1; i <= n; i++)
+    for (long long i = 1; i <= n; i++)
     {
         if (!in[i])
         {
@@ -26,20 +30,20 @@ int critical_path(int n)
         }
     }
 
-    int ans = 0;
+    long long ans = 0;
 
-    stack<int> t;
+    stack<long long> t;
 
     while (!q.empty())
     {
-        int now = q.front();
+        long long now = q.front();
         q.pop();
 
         t.push(now);
 
-        for (int i = 0; i < edge[now].size(); i++)
+        for (long long i = 0; i < edge[now].size(); i++)
         {
-            int v = edge[now][i].node, l = edge[now][i].len;
+            long long v = edge[now][i].node, l = edge[now][i].len;
             prtme[v] = max(prtme[v], prtme[now] + l);
             ans = max(ans, prtme[v]);
 
@@ -50,14 +54,14 @@ int critical_path(int n)
         }
     }
 
-    fill(lte, lte + n + 1, INT_MAX);
+    fill(lte, lte + n + 1, LLONG_MAX);
     lte[t.top()] = prtme[t.top()];
 
-    while(!t.empty()) // reverse
+    while (!t.empty()) // reverse
     {
-        int u = t.top();
+        long long u = t.top();
         t.pop();
-        for (int i = 0; i < edge[u].size(); i++)
+        for (long long i = 0; i < edge[u].size(); i++)
         {
             lte[u] = min(lte[u], lte[edge[u][i].node] - edge[u][i].len);
         }
@@ -68,12 +72,12 @@ int critical_path(int n)
 
 int main(int argc, char const *argv[])
 {
-    int n = 0, m = 0;
+    long long n = 0, m = 0;
 
     cin >> n >> m;
-    for (int i = 0; i < m; i++)
+    for (long long i = 0; i < m; i++)
     {
-        int x = 0, y = 0, z = 0;
+        long long x = 0, y = 0, z = 0;
 
         cin >> x >> y >> z;
 
@@ -82,7 +86,7 @@ int main(int argc, char const *argv[])
     }
 
     cout << critical_path(n) << endl;
-    for (int i = 1; i <= n; i++)
+    for (long long i = 1; i <= n; i++)
     {
         cout << prtme[i] << " " << lte[i] << endl;
     }

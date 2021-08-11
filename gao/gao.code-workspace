@@ -80,7 +80,8 @@
 			"cassert": "cpp",
 			"ctgmath": "cpp",
 			"cerrno": "cpp",
-			"ciso646": "cpp"
+			"ciso646": "cpp",
+			"queue": "cpp"
 		}
 	}
 }
