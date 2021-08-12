@@ -81,7 +81,8 @@
 			"ctgmath": "cpp",
 			"cerrno": "cpp",
 			"ciso646": "cpp",
-			"queue": "cpp"
+			"queue": "cpp",
+			"__bit_reference": "cpp"
 		}
 	}
 }

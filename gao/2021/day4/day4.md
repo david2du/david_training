@@ -129,9 +129,28 @@ int val[MAXN << 2];
 int lazy[MAXN << 2];
 int init_val[MAXN];
 
-void push_up()
+/*
+ * @brief 
+ * @param rt The node we are pushing to or the Root of the subtree.
+ */
+void push_up(int rt)
 {
-  
+  val[rt] = min(val[2 * rt], val[2 * rt + 1]);
+}
+
+void build(int rt, int l, int r)
+{
+  if (l == r)
+  {
+    val[rt] = init_val[l];
+  }
+  else
+  {
+    int mid = (l + r) / 2;
+    build(rt * 2, l, mid);
+    build(rt * 2 + 1, mid + 1, r);
+    push_up(rt);
+  }
 }
 
 void update_one(int rt, int l, int idx, int add)
@@ -142,11 +161,11 @@ void update_one(int rt, int l, int idx, int add)
     return;
   }
   int mid = (l + r) / 2;
-  if (idx <= mid)
+  if (idx <= mid) // left
   {
       update_one(rt * 2, l, mid, idx, add);
   }
-  else
+  else // right
   {
       update_one(rt * 2 + 1, mid + 1, r, idx, add);
   }
