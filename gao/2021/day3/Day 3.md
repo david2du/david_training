@@ -116,13 +116,40 @@ for (int i = 1; i<= n; i++)
 
 ```c++
 int ap[MAXN];
-void ap_tarjan()
+void ap_tarjan(int u)
 {
     int children = 0;
 
     dfn[u] = low[u] = ++idx;
 
-    for ()//NOT FINISHED
+    for (int e = 0; e < g[u].size(); e++)
+    {
+      int v = g[u][e];
+      
+      if (!dfn[v])
+      {
+          ++children;
+          parent[v] = u;
+          ap_tarjan(v);
+          low[u] = min(low[u], low[v]);
+          if (!parent[u] && children > 1)
+          {
+              ap[u] = true;
+          }
+          else if (parent[u] && low[v] >= dfn[u])
+          {
+              ap[u] = true;
+          }
+          else
+          {
+              continue;
+          }
+      }
+      else if (v != parent[u])
+      {
+          low[u] = min(low[u], dfn[v]);
+      }
+    }
 }
 ```
 

@@ -78,7 +78,7 @@ int N_Y(int a, int b, int c)
 
 int main(int argc, char const *argv[])
 {
-    clock_t A = clock();
+    //clock_t A = clock();
     int n = 0, q = 0, num = 0;
 
     freopen("4.in", "r", stdin);
@@ -121,9 +121,9 @@ int main(int argc, char const *argv[])
         }
     }
 
-    clock_t B = clock();
+    //clock_t B = clock();
 
-    cout << (double)(B - A) / (double)(CLOCKS_PER_SEC) << "s" << endl;
+    //cout << (double)(B - A) / (double)(CLOCKS_PER_SEC) << "s" << endl;
 
     return 0;
 }
