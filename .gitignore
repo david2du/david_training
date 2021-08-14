@@ -6,6 +6,8 @@
 !*.txt
 !*.md
 !*.code-workspace
+!*.in
+!*.ans
 *.dSYM
 build/
 
