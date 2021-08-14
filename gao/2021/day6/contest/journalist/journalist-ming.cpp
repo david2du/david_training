@@ -105,8 +105,13 @@ int main()
     cin >> n >> m;
     for (int i = 0; i < n; i++)
     {
+        
         cin >> bl[i];
+        cerr <<"fancy: " << n << " " << m  <<" "<< i <<" " << bl[i] << endl;
     }
+    cerr << "david" << endl;
+    cerr << n << " " << m << endl; 
+    cerr << "andy" << endl; 
     for (int i = 0; i < m; i++)
     {
         int a = 0, b = 0, val = 0;
