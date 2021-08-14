@@ -103,6 +103,7 @@ int main()
     freopen("journalist.out", "w", stdout);
  
     cin >> n >> m;
+    
     for (int i = 0; i < n; i++)
     {
         
@@ -124,9 +125,11 @@ int main()
     SPFA(1);
  
     int cnt = 0;
-    for (int i = n; i != 1; i = rdb[i].node)
+    cerr << n <<" " << m << endl;
+    for (int j = n; j != 1; j = rdb[j].node)
     {
-        A[cnt++] = bl[i];
+        cerr << n <<" " << m << " " << j << " "<<cnt<<endl; 
+        A[cnt++] = bl[j]; 
     }
     A[cnt++] = bl[1];
  
