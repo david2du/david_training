@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 int main()
@@ -8,7 +8,7 @@ int main()
     cin >> n;
 
     time_t a = clock();
-    for (int i = 0; i < n; i++)
+    for (long long i = 0; i < n; i++)
     {
 
     }

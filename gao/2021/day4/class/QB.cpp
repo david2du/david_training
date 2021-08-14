@@ -9,9 +9,7 @@ int sze[1001];
 int fnd(int x)
 {
     if (fa[x] == 0)
-    {
         return x;
-    }
 
     return fa[x] = fnd(fa[x]);
 }
@@ -35,15 +33,12 @@ int main(int argc, char const *argv[])
         }
 
         for (int i = 1; i <= n; i++)
-        {
             sze[fnd(i)]++;
-        }
 
         ans = 0;
         for (int i = 1; i <= n; i++)
-        {
             ans += (int)ceil((double)sze[i] / 10.0);
-        }
+
         fill(fa, fa + n + 1, 0);
         fill(sze, sze + n + 1, 0);
 

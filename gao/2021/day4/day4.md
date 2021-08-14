@@ -185,7 +185,7 @@ int query(int rt, int l, int r, int ql, int qr)
 {
     if (ql > r || qr < l)
     {
-        return 0;
+        return INT_MAX;
     }
     if (ql <= l && qr >= r)
     {
@@ -204,7 +204,7 @@ void update(int rt, int l, int r, int ul, int ur, int add)
     {
       return;
     }
-    if (ul <= l || ur >= r)
+    if (ul <= l && ur >= r)
     {
       val[rt] += add;
       lazy[rt] += add;
