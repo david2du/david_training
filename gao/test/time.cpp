@@ -3,17 +3,20 @@ using namespace std;
 
 int main()
 {
-    long long n = 0;
+    long long n = 1e9;
 
-    cin >> n;
-
-    time_t a = clock();
+    clock_t a = clock();
     for (long long i = 0; i < n; i++)
     {
+        i++;
+        i--;
+
+        i *= 2;
+        i /= 2;
 
     }
 
-    time_t b = clock();
+    clock_t b = clock();
 
     cout << (double)(b - a) / (double)(CLOCKS_PER_SEC) << "s" << endl;
 
