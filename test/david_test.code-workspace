@@ -22,7 +22,12 @@
 			"limits": "cpp",
 			"valarray": "cpp",
 			"map": "cpp",
-			"queue": "cpp"
+			"queue": "cpp",
+			"array": "cpp",
+			"bitset": "cpp",
+			"initializer_list": "cpp",
+			"regex": "cpp",
+			"utility": "cpp"
 		}
 	}
 }
