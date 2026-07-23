@@ -14,7 +14,7 @@ struct Node
     bool end;
     int cnt;
     int ans;
-    int fin;
+    int deg;
 
     Node()
     {
@@ -22,8 +22,8 @@ struct Node
         fail = 0;
         end = false;
         cnt = 0;
-        fin = 0;
         ans = 0;
+        deg = 0;
     }
 };
 
@@ -64,11 +64,8 @@ inline void buildFail()
         {
             if (tr[now].chd[i])
             {
-                if (tr[tr[tr[now].fail].chd[i]].end)
-                    tr[tr[now].chd[i]].fin = tr[tr[now].fail].chd[i];
-                else
-                    tr[tr[now].chd[i]].fin = tr[tr[tr[now].fail].chd[i]].fin;
                 tr[tr[now].chd[i]].fail = tr[tr[now].fail].chd[i];
+                tr[tr[tr[now].chd[i]].fail].deg++;
                 q.push(tr[now].chd[i]);
             }
             else
@@ -77,7 +74,26 @@ inline void buildFail()
     }
 }
 
-vector<int> vst;
+void topoPush()
+{
+    queue<int> q;
+    for (int i = 1; i < tr.size(); ++i)
+    {
+        if (!tr[i].deg)
+            q.push(i);
+    }
+    while (!q.empty())
+    {
+        int now = q.front();
+        q.pop();
+        tr[now].ans += tr[now].cnt;
+        tr[tr[now].fail].ans += tr[now].ans;
+        tr[tr[now].fail].deg--;
+        
+        if (!tr[tr[now].fail].deg)
+            q.push(tr[now].fail);
+    }
+}
 
 void match(const string &s)
 {
@@ -86,20 +102,9 @@ void match(const string &s)
     {
         int c = s[i] - 'a';
         now = tr[now].chd[c];
-        if (!tr[now].cnt)
-            vst.push_back(now);
         tr[now].cnt++;
     }
-    for (int i = 0; i < vst.size(); ++i)
-    {
-        int tmp = vst[i];
-        int val = tr[tmp].cnt;
-        while (tmp)
-        {
-            tr[tmp].ans += val;
-            tmp = tr[tmp].fin;
-        }
-    }
+    topoPush();
 }
 
 int main()
