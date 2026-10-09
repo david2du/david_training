@@ -2,23 +2,36 @@
 #include <stdlib.h>
 #include <math.h>
 
+#define MX 40000
+
 struct Pair
 {
     int a;
     int b;
     int c;
-} f[3][10000 + 10];
+} f[3][2 * MX + 10];
+
+#define max(a, b) (a > b ? a : b)
 
 int better(const struct Pair *A, const struct Pair *B)
 {
     if ((abs(A->a) + abs(A->b) + abs(A->c)) != abs(B->a) + abs(B->b) + abs(B->c))
     {
-        return (abs(A->a) + abs(A->b) + abs(A->c)) < abs(B->a) + abs(B->b) + abs(B->c);
+        return (abs(A->a) + abs(A->b) + abs(A->c)) < (abs(B->a) + abs(B->b) + abs(B->c));
     }
     return (max(0, A->a) + max(0, A->b) + max(0, A->c)) < (max(0, B->a) + max(0, B->b) + max(0, B->c));
 }
 
+#define F(a, b) f[a][b + MX]
 #define INF 1000000
+
+void print(int cnt, int cash)
+{
+    if (cnt > 0)
+        printf("Buyer pays %d bills of %d yuan.\n", cnt, cash);
+    else if (cnt < 0)
+        printf("Seller changed %d bills of %d yuan.\n", -cnt, cash);
+}
 
 int main()
 {
@@ -34,33 +47,62 @@ int main()
 
     for (int i = 0; i < 3; ++i)
     {
-        for (int j = 1; j <= E; ++j)
+        for (int j = -MX; j <= MX; ++j)
         {
-            f[i][j].a = INF;
-            f[i][j].b = INF;
-            f[i][j].c = INF;
+            F(i, j).a = INF;
+            F(i, j).b = INF;
+            F(i, j).c = INF;
         }
-        f[i][0].a = 0;
-        f[i][0].a = 0;
-        f[i][0].a = 0;
     }
 
     int r = 0;
-    for (int j = 1; j * a <= E; ++j)
+    for (int j = -ma; j <= na; ++j)
     {
-        f[r][j].a = j;
+        F(r, j * a).a = j;
     }
     r = 1;
 
-    for (int j = 1; j <= E; ++j)
+    for (int j = -MX; j <= MX; ++j)
     {
-        for (int i = -mb; i <= na; ++i)
+        for (int i = -mb; i <= nb; ++i)
         {
-            if ((j - i * b) > E || )
-            if (better(&f[r - 1][j + i * b], &f[r][j]))
+            if ((j - i * b) > MX || (j - i * b < (-MX)))
+                continue;
+            F(r - 1, j - i * b).b = i;
+            if (better(&F(r - 1, j - i * b), &F(r, j)))
+            {
+                F(r, j) = F(r - 1, j - i * b);
+            }
+            F(r - 1, j - i * b).b = INF;
         }
+    }
 
-        f[r][j] =
+    r = 2;
+    for (int j = -MX; j <= MX; ++j)
+    {
+        for (int i = -mc; i <= nc; ++i)
+        {
+            if ((j - i * c) > MX || (j - i * c < (-MX)))
+                continue;
+            F(r - 1, j - i * c).c = i;
+            if (better(&F(r - 1, j - i * c), &F(r, j)))
+            {
+                F(r, j) = F(r - 1, j - i * c);
+            }
+            F(r - 1, j - i * c).c = INF;
+        }
+    }
+    struct Pair e = F(2, E);
+
+    if (e.a != INF && e.b != INF && e.c != INF)
+    {
+        print(e.a, a);
+        print(e.b, b);
+        print(e.c, c);
+    }
+    else
+    {
+        printf("Cannot buy.\n");
     }
 
     return 0;
