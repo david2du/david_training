@@ -9,7 +9,7 @@ int dfn[N], low[N];
 vector<int> cut;
 int rt;
 
-void tarjan(int id)
+void tarjan(int id, int fa)
 {
     dfn[id] = (++cnt);
     low[id] = dfn[id];
@@ -22,12 +22,12 @@ void tarjan(int id)
         if (!dfn[v])
         {
             chd++;
-            tarjan(v);
+            tarjan(v, id);
             low[id] = min(low[id], low[v]);
-            if (low[v] >= dfn[id] && id != rt)
+            if (low[v] >= dfn[id] && id != rt) // 割点要特判根，割边不用
                 flag = true;
         }
-        else
+        else if (v != fa) // 割点可以直接用else,但是仅仅对于割点这一特殊问题正确，因为对于[TR]-id-v-[tr]的情况（TR tr不连通），id显然为一个割点
             low[id] = min(low[id], dfn[v]);
     }
     // cout << id << " " << dfn[id] << " " << low[id] << endl;
@@ -57,7 +57,7 @@ int main()
         if (!dfn[i])
         {
             rt = i;
-            tarjan(i);
+            tarjan(i, -1);
         }
     }
     sort(cut.begin(), cut.end());

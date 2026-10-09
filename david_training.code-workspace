@@ -20,6 +20,12 @@
 		},
 		{
 			"path": "test"
+		},
+		{
+			"path": "USTC"
+		},
+		{
+			"path": "contest"
 		}
 	],
 	"settings": {
