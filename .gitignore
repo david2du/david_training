@@ -2,6 +2,8 @@
 !.gitignore
 !*/
 !*.cpp
+!*.c
+!*.py
 !*.h
 !*.txt
 !*.md
